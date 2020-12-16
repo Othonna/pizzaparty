@@ -27,6 +27,29 @@ export class PizzaService {
     //     console.log(response);
     //   });
     
+  
+  }
+      getPizzasSlowly(): Promise<Pizza[]> {
+     return new Promise(resolve =>{
+       setTimeout(() => resolve(this.getPizzas()), 2000);
+     });
+  }
+
+  createPizzaSlowly(pizza: Pizza): Promise<Pizza> {
+    // Ici, je simule une connexion lente sur mon API
+    return new Promise(resolve => {
+      setTimeout(() => resolve(this.createPizza(pizza)), 2000);
+    });
+  }
+  /*
+  *
+  * Permet de créer une pizza sur mon API
+  * 
+  */
+  createPizza(pizza: Pizza): Promise<Pizza> {
+    // On envoie la pizza à l'API; et l'API nous permets de créer cette Pizza
+    // Si c'est le cas, elle nous renvoie la pizza avec son ID
     
+    return this.http.post<Pizza>('http://localhost:3000/pizzas', pizza).toPromise();
   }
 }

@@ -21,6 +21,8 @@ export class PizzaListComponent implements OnInit {
     console.log(pizza);
     // Je vais modifier la valeur de ma SuperPizza
     this.maSuperPizza = pizza;
+    // remonter en haut de la page
+    window.scrollTo(0, 0);
   }
 
   // Ce qu'on fait ici s'appelle l'injection de dépendances
@@ -43,7 +45,8 @@ export class PizzaListComponent implements OnInit {
     // On appelle la méthode getPizzas du service pizzaSevice qui nous renvoie une promesse
     // Suite à la résolution de l apromesse (then), on a un tableau de pizzas
     // Le this (qui est donc PizzaListComponent)
-    this.pizzaService.getPizzas().then(pizzas => { this.mesPizzas = pizzas; });
+    this.pizzaService.getPizzasSlowly().then(pizzas => { this.mesPizzas = pizzas; });
+    // remettre getPizzas quand on veut revenir sur la latence normale
   }
 
 }
