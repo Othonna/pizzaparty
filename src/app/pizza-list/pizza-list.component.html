@@ -1,0 +1,22 @@
+<div *ngIf="maSuperPizza" class="row">
+    <div class="col-lg-3">
+        <img [src]="'assets/img/Pizza/' + maSuperPizza.image" [alt]="maSuperPizza.name" class="img-fluid rounded-lg">
+    </div>
+
+    <div class="col-lg-3">
+        <h2>{{ maSuperPizza.name }}</h2>
+        <p>Prix: {{ maSuperPizza.price }}</p>
+        <input [(ngModel)]="maSuperPizza.name" class="form-control">
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-sm-6 col-lg-3" *ngFor="let pizza of mesPizzas" (click)="onSelect(pizza)">
+        <div class="card shadow-lg" [class.selected]="pizza === maSuperPizza"> 
+            <img class="card-img-top" [src]="'assets/img/Pizza/' + pizza.image" [alt]="">
+            <div class="card-body text-center">
+                {{ pizza.name }}
+            </div>
+        </div>
+    </div>
+</div>

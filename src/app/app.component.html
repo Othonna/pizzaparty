@@ -1,12 +1,5 @@
-<h1>{{ title }}</h1>
-
-
-
-<div>
-    <h2>{{ maSuperPizza.name }}</h2>
-    <p>ID: {{ maSuperPizza.id }}</p>
-    <p>Prix: {{ maSuperPizza.price }}</p>
-    <img [src]="'assets/img/Pizza/' + maSuperPizza.image" [alt]="maSuperPizza.name">
+<app-menu [navTitle]="title" color="dark"></app-menu>
+    <div class="container">
+        
+    <router-outlet></router-outlet>
 </div>
-
-<input [(ngModel)]="maSuperPizza.name">
